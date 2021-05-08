@@ -1,7 +1,5 @@
 import core.polishCalculation as calculation
 import core.transformationToPolish as transform
+import math
 
-stack = [1, 2, 3]
-
-while stack.pop() != '9':
-    print(stack.pop())
+print(math.radians(90))
