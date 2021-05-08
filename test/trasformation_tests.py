@@ -39,6 +39,10 @@ class MyTestCase(unittest.TestCase):
         result = trasform.transform_to_polish('sin ( deg ( 90 ) )')
         self.assertEqual(result, '90 deg sin')
 
+    def test_expression_with_log(self):
+        result = trasform.transform_to_polish('log ( 100 10 )')
+        self.assertEqual(result, '100 10 log')
+
     def test_hard_expression(self):
         result = trasform.transform_to_polish('1 ^ 3 / ( 5 * 4 ) + 10 * sin ( 10 * 4 )')
         self.assertEqual(result, '1 3 ^ 5 4 * / 10 10 4 * sin * +')

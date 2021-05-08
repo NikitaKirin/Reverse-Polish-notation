@@ -2,6 +2,7 @@ import unittest
 import core.polishCalculation as calc
 import math
 
+
 class MyTestCase(unittest.TestCase):
     def test_calculate_easy_expression(self):
         result = calc.calculate_polish('3 4 +')
@@ -33,7 +34,7 @@ class MyTestCase(unittest.TestCase):
 
     def test_calculate_with_pow(self):
         result = calc.calculate_polish('5 2 ^')
-        self.assertEqual(result, 25)
+        self.assertEqual(result, 5 ** 2)
 
     def test_calculate_with_functions(self):
         result = calc.calculate_polish('4 sqrt')
@@ -45,11 +46,11 @@ class MyTestCase(unittest.TestCase):
 
     def test_calculate_with_expression_inner_functions(self):
         result = calc.calculate_polish('3 3 * sqrt')
-        self.assertEqual(result, 3)
+        self.assertEqual(result, math.sqrt(3 * 3))
 
     def test_calculate_with_trigonometry_functions(self):
         result = calc.calculate_polish('90 sin')
-        self.assertEqual(result, 0.8939966636005579)
+        self.assertEqual(result, math.sin(90))
 
     def test_calculate_with_hard_trigonometry_functions(self):
         result = calc.calculate_polish('0 deg cos')
@@ -57,11 +58,15 @@ class MyTestCase(unittest.TestCase):
 
     def test_calculate_with_trigonometry_and_other_functions(self):
         result = calc.calculate_polish('8100 sqrt sin')
-        self.assertEqual(result, 0.8939966636005579)
+        self.assertEqual(result, math.sin(math.sqrt(8100)))
 
     def test_calculate_exp_function(self):
         result = calc.calculate_polish('2 exp')
         self.assertEqual(result, math.exp(2))
+
+    def test_calculate_log_functions(self):
+        result = calc.calculate_polish('100 10 log')
+        self.assertEqual(result, math.log(100, 10))
 
 
 if __name__ == '__main__':
