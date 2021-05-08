@@ -15,6 +15,14 @@ class MyTestCase(unittest.TestCase):
         result = calc.calculate_polish('5 6 * 10 /')
         self.assertEqual(result, 3)
 
+    def test_calculate_with_div(self):
+        result = calc.calculate_polish('7 2 div')
+        self.assertEqual(result, 3)
+
+    def test_calculate_with_mod(self):
+        result = calc.calculate_polish('7 2 %')
+        self.assertEqual(result, 1)
+
     def test_calculate_with_plus_mul(self):
         result = calc.calculate_polish('3 4 5 * +')
         self.assertEqual(result, 23)

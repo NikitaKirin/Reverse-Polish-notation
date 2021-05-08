@@ -10,12 +10,14 @@ def arcctg(x):
     return 1 / math.atan(x)
 
 
-OPERATORS = {'+': operator.add, '-': operator.sub, '*': operator.mul, '/': operator.truediv, '^': math.pow}
+OPERATORS = {'+': operator.add, '-': operator.sub, '*': operator.mul, '/': operator.truediv, '^': math.pow,
+             'div': operator.floordiv, '%': operator.mod}
 
 FUNCTIONS = {'cos': math.cos, 'sin': math.sin, 'tg': math.tan, 'arctg': math.atan, 'ctg': ctg,
              'arcctg': arcctg, 'abs': abs, 'sqrt': math.sqrt}
 
-PRIORITY = {1: ['+', '-', ], 2: ['*', '/'], 3: ['sin', 'cos', 'tg', 'artctg', 'ctg', 'arcctg', 'abs', 'sqrt', '^']}
+PRIORITY = {1: ['+', '-', ], 2: ['*', '/', 'div', '%'],
+            3: ['sin', 'cos', 'tg', 'artctg', 'ctg', 'arcctg', 'abs', 'sqrt', '^']}
 
 
 def set_priority(value: str) -> int:
