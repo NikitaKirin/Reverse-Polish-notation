@@ -14,10 +14,10 @@ OPERATORS = {'+': operator.add, '-': operator.sub, '*': operator.mul, '/': opera
              'div': operator.floordiv, '%': operator.mod}
 
 FUNCTIONS = {'cos': math.cos, 'sin': math.sin, 'tg': math.tan, 'arctg': math.atan, 'ctg': ctg,
-             'arcctg': arcctg, 'abs': abs, 'sqrt': math.sqrt, 'deg': math.radians}
+             'arcctg': arcctg, 'abs': abs, 'sqrt': math.sqrt, 'deg': math.radians, 'exp': math.exp}
 
 PRIORITY = {1: ['+', '-', ], 2: ['*', '/', 'div', '%'],
-            3: ['sin', 'cos', 'tg', 'artctg', 'ctg', 'arcctg', 'abs', 'sqrt', '^', 'deg']}
+            3: ['sin', 'cos', 'tg', 'artctg', 'ctg', 'arcctg', 'abs', 'sqrt', '^', 'deg', 'exp']}
 
 
 # def polishCalculation(srt):

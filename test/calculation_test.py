@@ -1,6 +1,6 @@
 import unittest
 import core.polishCalculation as calc
-
+import math
 
 class MyTestCase(unittest.TestCase):
     def test_calculate_easy_expression(self):
@@ -53,11 +53,15 @@ class MyTestCase(unittest.TestCase):
 
     def test_calculate_with_hard_trigonometry_functions(self):
         result = calc.calculate_polish('0 deg cos')
-        self.assertEqual(result, 1)
+        self.assertEqual(result, math.cos(math.radians(0)))
 
     def test_calculate_with_trigonometry_and_other_functions(self):
         result = calc.calculate_polish('8100 sqrt sin')
         self.assertEqual(result, 0.8939966636005579)
+
+    def test_calculate_exp_function(self):
+        result = calc.calculate_polish('2 exp')
+        self.assertEqual(result, math.exp(2))
 
 
 if __name__ == '__main__':
