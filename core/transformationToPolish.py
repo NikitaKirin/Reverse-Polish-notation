@@ -34,7 +34,7 @@ def transform_to_polish(str):
     for i in current_string:
         if i == ' ':
             continue
-        if i.isdigit():  # Если символ - число, то добавляем его к выходной строке
+        if i.isdigit() or i == 'X':  # Если символ - число или переменная, то добавляем его к выходной строке
             result_string += ' '
             result_string += i
         if i == '(':
