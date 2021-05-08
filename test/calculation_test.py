@@ -51,6 +51,10 @@ class MyTestCase(unittest.TestCase):
         result = calc.calculate_polish('90 sin')
         self.assertEqual(result, 0.8939966636005579)
 
+    def test_calculate_with_hard_trigonometry_functions(self):
+        result = calc.calculate_polish('0 deg cos')
+        self.assertEqual(result, 1)
+
     def test_calculate_with_trigonometry_and_other_functions(self):
         result = calc.calculate_polish('8100 sqrt sin')
         self.assertEqual(result, 0.8939966636005579)

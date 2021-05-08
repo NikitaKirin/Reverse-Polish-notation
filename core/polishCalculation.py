@@ -14,10 +14,10 @@ OPERATORS = {'+': operator.add, '-': operator.sub, '*': operator.mul, '/': opera
              'div': operator.floordiv, '%': operator.mod}
 
 FUNCTIONS = {'cos': math.cos, 'sin': math.sin, 'tg': math.tan, 'arctg': math.atan, 'ctg': ctg,
-             'arcctg': arcctg, 'abs': abs, 'sqrt': math.sqrt}
+             'arcctg': arcctg, 'abs': abs, 'sqrt': math.sqrt, 'deg': math.radians}
 
 PRIORITY = {1: ['+', '-', ], 2: ['*', '/', 'div', '%'],
-            3: ['sin', 'cos', 'tg', 'artctg', 'ctg', 'arcctg', 'abs', 'sqrt', '^']}
+            3: ['sin', 'cos', 'tg', 'artctg', 'ctg', 'arcctg', 'abs', 'sqrt', '^', 'deg']}
 
 
 # def polishCalculation(srt):
@@ -46,6 +46,6 @@ def calculate_polish(str):
             stack.append(OPERATORS[i](int(value2), int(value1)))
         if i in FUNCTIONS.keys():
             value1 = stack.pop()
-            stack.append(FUNCTIONS[i](int(value1)))
+            stack.append(FUNCTIONS[i](float(value1)))
 
     return stack.pop()
